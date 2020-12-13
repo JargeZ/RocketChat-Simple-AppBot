@@ -1,5 +1,7 @@
 ### This is a RocketChat bot library using an app bridge to create bots with interactive elements such as buttons.
 ![preview](https://i.imgur.com/zebkL5c.png)
+# ☝ Important 
+In addition to this description, be sure to see an [example](./example.py) of a bot on how to send and build data to send
 # Usage
 - First, you **need to install [this application](https://github.com/JargeZ/RocketChat.Apps.BotBridge)** on your rocket chat server.
 - Then go to the admin settings -> applications -> BotBridge -> and copy the `POST webhook` address
