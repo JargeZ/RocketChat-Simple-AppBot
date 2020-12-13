@@ -52,3 +52,10 @@ In addition to this description, be sure to see an [example](./example.py) of a 
       time.sleep(300)
   ```
   P.S. Eliminate the need for loop in my todo for easier work
+- After launching, there will be a line in the log saying that the server is running.
+  ```
+  | INFO     | run:57 - Listen on **http://0.0.0.0:3228/** copy this(or service ip for kubernetes) to RocketChat app settings
+  ```
+You need to specify the address of the server on which the bot is running in the rocket chat settings as a backend address.\
+  **Instead of 0.0.0.0, there should be one of your server addresses, which will be available for rocket chat. Eg. Service name in docker-compose or kubernetes**\
+  ![](https://i.imgur.com/BI44RUy.png)
