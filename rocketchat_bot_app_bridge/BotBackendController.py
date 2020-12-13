@@ -115,6 +115,6 @@ class BotBackendController(object):
             'payload': payload
         }
         result = requests.post(
-            'http://localhost:3000/api/apps/private/41315b7b-6c01-4ede-8201-2c3927404e41/sab7GvPntPRpmuTms/webhook',
+            self.app_endpoint,
             json=data)
         logger.debug(result)
