@@ -14,7 +14,7 @@ on:
 #      - dev
   release:
     types:
-      - unpublished
+      - created
 
 jobs:
   deploy:
