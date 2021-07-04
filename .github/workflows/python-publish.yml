@@ -21,6 +21,8 @@ on:
 
 jobs:
   build:
+    concurrency:
+      group: release-group
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -35,22 +37,14 @@ jobs:
         echo $GITHUB_REF
     - name: Build package
       run: python -m build
-    - name: TEST Publish package
-      if: github.ref == 'refs/heads/dev'
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
-    - name: Publish package
-      if: github.ref == 'refs/heads/master'
-      run: echo bublish
     - uses: actions/upload-artifact@master
       with:
         name: py-build-artifact
         path: dist/
 
   deploy_test:
+    concurrency:
+      group: release-group
     if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     environment: Test
