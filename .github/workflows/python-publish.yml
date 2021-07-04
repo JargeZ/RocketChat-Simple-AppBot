@@ -56,4 +56,18 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
+        skip_existing: true
         repository_url: https://test.pypi.org/legacy/
+
+  deploy_prod:
+    needs:
+      - build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: Test
+    steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: py-build-artifact
+        path: dist/
+    - run: echo Prodtodo
