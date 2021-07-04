@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="rocketchat_bot_simple_app_bot",
-    version="0.0.4",
+    version="0.0.6",
     author="Pavel Khorikov",
     author_email="lev@ph3.ru",
     description="Bot client for rocketchat BotBridgeApp",
