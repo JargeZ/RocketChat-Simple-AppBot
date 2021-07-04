@@ -21,8 +21,6 @@ on:
 
 jobs:
   build:
-    concurrency:
-      group: release-group
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -43,8 +41,8 @@ jobs:
         path: dist/
 
   deploy_test:
-    concurrency:
-      group: release-group
+    needs:
+      - build
     if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     environment: Test
